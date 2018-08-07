@@ -1,6 +1,7 @@
 #!usr/bin/env python
 
 # to enable flow of packets type in terminal: sysctl -w net.ipv4.ip_forward=1
+# echo 1 > /proc/sys/net/ipv4/ip_forward
 
 import sys
 import scapy.all as scapy
